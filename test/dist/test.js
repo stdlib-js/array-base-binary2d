@@ -21,101 +21,13 @@
 // MODULES //
 
 var tape = require( 'tape' );
-var add = require( '@stdlib/math-base-ops-add' );
-var zeros2d = require( '@stdlib/array-base-zeros2d' );
-var binary2d = require( './../../dist' );
+var main = require( './../../dist' );
 
 
 // TESTS //
 
-tape( 'main export is a function', function test( t ) {
+tape( 'main export is defined', function test( t ) {
 	t.ok( true, __filename );
-	t.strictEqual( typeof binary2d, 'function', 'main export is a function' );
+	t.strictEqual( main !== void 0, true, 'main export is defined' );
 	t.end();
-});
-
-tape( 'the function applies a provided callback to nested input arrays and assigns results to a nested output array', function test( t ) {
-	var expected;
-	var shape;
-	var x;
-	var y;
-	var z;
-
-	shape = [ 2, 2 ];
-	x = [
-		[ 1.0, 2.0 ],
-		[ 3.0, 4.0 ]
-	];
-	y = [
-		[ 5.0, 6.0 ],
-		[ 7.0, 8.0 ]
-	];
-	z = zeros2d( shape );
-
-	expected = [
-		[ 6.0, 8.0 ],
-		[ 10.0, 12.0 ]
-	];
-	binary2d( [ x, y, z ], shape, add );
-
-	t.deepEqual( z, expected, 'returns expected value' );
-	t.end();
-});
-
-tape( 'the function does not invoke a provided callback if provided a shape having a first element equal to zero', function test( t ) {
-	var expected;
-	var shape;
-	var x;
-	var y;
-	var z;
-
-	shape = [ 2, 2 ];
-	x = [
-		[ 1.0, 2.0 ],
-		[ 3.0, 4.0 ]
-	];
-	y = [
-		[ 5.0, 6.0 ],
-		[ 7.0, 8.0 ]
-	];
-	z = zeros2d( shape );
-
-	expected = zeros2d( shape );
-	binary2d( [ x, y, z ], [ 0, 2 ], clbk );
-
-	t.deepEqual( z, expected, 'returns expected value' );
-	t.end();
-
-	function clbk() {
-		t.ok( false, 'should not invoke callback' );
-	}
-});
-
-tape( 'the function does not invoke a provided callback if provided a shape having a second element equal to zero', function test( t ) {
-	var expected;
-	var shape;
-	var x;
-	var y;
-	var z;
-
-	shape = [ 2, 2 ];
-	x = [
-		[ 1.0, 2.0 ],
-		[ 3.0, 4.0 ]
-	];
-	y = [
-		[ 5.0, 6.0 ],
-		[ 7.0, 8.0 ]
-	];
-	z = zeros2d( shape );
-
-	expected = zeros2d( shape );
-	binary2d( [ x, y, z ], [ 2, 0 ], clbk );
-
-	t.deepEqual( z, expected, 'returns expected value' );
-	t.end();
-
-	function clbk() {
-		t.ok( false, 'should not invoke callback' );
-	}
 });
