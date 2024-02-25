@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2023 The Stdlib Authors.
@@ -16,18 +16,37 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { Array2D } from '@stdlib/types/array';
+import { Shape2D } from '@stdlib/types/ndarray';
 
 /**
-* Apply a binary callback to elements in two two-dimensional nested input arrays and assign results to elements in a two-dimensional nested output array.
+* Binary callback.
 *
-* @module @stdlib/array-base-binary2d
+* @param v1 - element from first input array
+* @param v2 - element from second input array
+* @returns result
+*/
+type Binary<T, U, V> = ( v1: T, v2: U ) => V;
+
+/**
+* Applies a binary callback to elements in two two-dimensional nested input arrays and assigns results to elements in a two-dimensional nested output array.
+*
+* ## Notes
+*
+* -   The function assumes that the input and output arrays have the same shape.
+*
+* @param arrays - array containing two input nested arrays and one output nested array
+* @param shape - array shape
+* @param fcn - binary callback
 *
 * @example
 * var ones2d = require( '@stdlib/array-base-ones2d' );
 * var zeros2d = require( '@stdlib/array-base-zeros2d' );
 * var add = require( '@stdlib/math-base-ops-add' );
-* var binary2d = require( '@stdlib/array-base-binary2d' );
 *
 * var shape = [ 2, 2 ];
 *
@@ -40,12 +59,9 @@
 * console.log( z );
 * // => [ [ 2.0, 2.0 ], [ 2.0, 2.0 ] ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function binary2d<T = unknown, U = unknown, V = unknown>( arrays: [ Array2D<T>, Array2D<U>, Array2D<V> ], shape: Shape2D, fcn: Binary<T, U, V> ): void;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = binary2d;
