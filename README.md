@@ -74,7 +74,7 @@ var binary2d = require( '@stdlib/array-base-binary2d' );
 Applies a binary callback to elements in two two-dimensional nested input arrays and assigns results to elements in a two-dimensional nested output array.
 
 ```javascript
-var add = require( '@stdlib/math-base-ops-add' );
+var add = require( '@stdlib/number-float64-base-add' );
 var zeros2d = require( '@stdlib/array-base-zeros2d' );
 
 var x = [ [ 1.0, 2.0 ], [ 3.0, 4.0 ] ];
@@ -116,7 +116,7 @@ The function accepts the following arguments:
 var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
 var filled2dBy = require( '@stdlib/array-base-filled2d-by' );
 var zeros2d = require( '@stdlib/array-base-zeros2d' );
-var add = require( '@stdlib/math-base-ops-add' );
+var add = require( '@stdlib/number-float64-base-add' );
 var binary2d = require( '@stdlib/array-base-binary2d' );
 
 var shape = [ 3, 3 ];
@@ -172,7 +172,7 @@ See [LICENSE][stdlib-license].
 
 ## Copyright
 
-Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
+Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 </section>
 
